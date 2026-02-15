@@ -17,8 +17,10 @@ public class playerControl : MonoBehaviour
 
     public playerState _state;
 
-    private float speed = 2f;
-    private float runningSpeed = 3f;
+    private float speed = 3f;
+    private float runningSpeed = 5f;
+
+    private float rSpeed = 10f;
     void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -43,13 +45,24 @@ public class playerControl : MonoBehaviour
             }
         }
 
+        if (posicion.magnitude >= 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(posicion);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation,
+                                                    targetRotation,
+                                                    rSpeed * Time.deltaTime);
+        }
+
+        Vector3 finalMove = transform.forward * posicion.magnitude;
+
         if (_state == playerState.walking)
         {
-            _controller.Move(posicion * speed * Time.deltaTime);
+            _controller.Move(finalMove * speed * Time.deltaTime);
         }
         else
         {
-            _controller.Move(posicion * runningSpeed * Time.deltaTime);
+            _controller.Move(finalMove * runningSpeed * Time.deltaTime);
         }
         
     }
