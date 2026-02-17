@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon
     public string weaponName;
     public Sprite icon;
     
-    private bool activo;
+    private bool activo = true;
     public virtual void Equip()
     {
         gameObject.SetActive(true);
@@ -18,5 +18,10 @@ public abstract class Weapon : MonoBehaviour, IWeapon
     public virtual void Unequip()
     {
         gameObject.SetActive(false);
+    }
+
+    public bool isActive()
+    {
+        return activo;
     }
 }

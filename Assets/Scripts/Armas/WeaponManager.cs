@@ -27,27 +27,11 @@ public class WeaponManager : MonoBehaviour
     void Update()
     {
         // Disparar / usar arma
-        if (Input.GetButtonDown("Fire1") && weapons.Count > 0)
+        if (_playerInputs.actions["Atacar"].IsPressed() && weapons.Count > 0)
         {
             weapons[currentWeaponIndex].Shoot();
         }
     }
-
-    //private void OnEnable()
-    //{
-    //    _playerInputs.actions["SelectWeapon1"].performed += ctx => selectWeapon(0);
-    //    _playerInputs.actions["SelectWeapon2"].performed += ctx => selectWeapon(1);
-    //    _playerInputs.actions["SelectWeapon3"].performed += ctx => selectWeapon(2);
-    //    _playerInputs.actions["SelectWeapon4"].performed += ctx => selectWeapon(3);
-    //}
-
-    //private void OnDisable()
-    //{
-    //    _playerInputs.actions["SelectWeapon1"].performed -= ctx => selectWeapon(0);
-    //    _playerInputs.actions["SelectWeapon2"].performed -= ctx => selectWeapon(1);
-    //    _playerInputs.actions["SelectWeapon3"].performed -= ctx => selectWeapon(2);
-    //    _playerInputs.actions["SelectWeapon4"].performed -= ctx => selectWeapon(3);
-    //}
     public void addWeapon()
     {
         //Agrega el arma nueva encontrada
@@ -57,7 +41,8 @@ public class WeaponManager : MonoBehaviour
     {
         if (index < 0 || index >= weapons.Count)
             return;
-
+        if (!weapons[index].isActive())
+            return;
         weapons[currentWeaponIndex].Unequip();
         currentWeaponIndex = index;
         weapons[currentWeaponIndex].Equip();
