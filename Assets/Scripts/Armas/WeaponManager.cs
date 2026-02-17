@@ -9,6 +9,13 @@ public class WeaponManager : MonoBehaviour
     private int currentWeaponIndex = 0;
 
     private PlayerInput _playerInputs;
+
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponentInParent<Animator>();
+    }
     void Start()
     {
         _playerInputs = GetComponent<PlayerInput>();
@@ -46,5 +53,13 @@ public class WeaponManager : MonoBehaviour
         weapons[currentWeaponIndex].Unequip();
         currentWeaponIndex = index;
         weapons[currentWeaponIndex].Equip();
+        if (index == 0)
+        {
+            _animator.SetBool("cuchillo", true);
+        }
+        else
+        {
+            _animator.SetBool("cuchillo", false);
+        }
     }
 }
