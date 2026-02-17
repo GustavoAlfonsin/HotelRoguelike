@@ -10,7 +10,7 @@
                     "name": "Movement",
                     "type": "Value",
                     "id": "55dc2696-dbd8-4ec9-8246-4ad8591a8a5d",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -19,6 +19,42 @@
                     "name": "Running",
                     "type": "Button",
                     "id": "9cfe184a-6918-446c-a54c-c7457c15948e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectWeapon1",
+                    "type": "Button",
+                    "id": "ab91043e-0ef4-4b65-8c96-7497f8274c36",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectWeapon2",
+                    "type": "Button",
+                    "id": "9873ecd1-ad89-4d23-89a8-264b686f4d73",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectWeapon3",
+                    "type": "Button",
+                    "id": "4868e3c3-e040-4ec9-9e75-f3e85bd85509",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectWeapon4",
+                    "type": "Button",
+                    "id": "5381c3a3-a427-4acd-816a-1dd60bdcc08c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -144,6 +180,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Running",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57ec7163-eba3-4268-ac28-6b8c60beae4f",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectWeapon1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "759da656-887e-4f6d-a2ca-6ad4ffcedb0d",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectWeapon2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "46973430-1d04-4835-a319-d04789ee37f2",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectWeapon3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4e1abe60-e377-41d1-955a-d01c2dd707c3",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectWeapon4",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
