@@ -24,4 +24,6 @@ public abstract class Weapon : MonoBehaviour, IWeapon
     {
         return activo;
     }
+
+    public abstract void recargar();
 }

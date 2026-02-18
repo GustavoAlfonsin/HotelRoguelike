@@ -20,4 +20,8 @@ public class Cuchillo : Weapon
         nextFireTime = Time.time + fireRate;
         _animator.SetTrigger("Attack");
     }
+
+    public override void recargar()
+    {
+    }
 }

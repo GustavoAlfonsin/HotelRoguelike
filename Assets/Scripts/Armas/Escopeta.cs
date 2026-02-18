@@ -6,6 +6,9 @@ public class Escopeta : Weapon
 {
     public int damage = 20;
     public float fireRate = 3f;
+    public int municiónMaxima = 8;
+    public int municionActual = 8;
+    public int municiónExtra = 10;
 
     private float nextFireTime;
 
@@ -20,5 +23,24 @@ public class Escopeta : Weapon
         GameObject obj = Instantiate(balaPrefab, firePoint.position, firePoint.rotation);
         obj.GetComponent<BalaController>().speed = balaVel;
         obj.GetComponent<BalaController>().damage = damage;
+        municionActual--;
+    }
+
+    public override void recargar()
+    {
+        int balasFaltantes = municiónMaxima - municionActual;
+        Debug.Log($"munición acttual: {municionActual} n/ balas faltantes: {balasFaltantes} n/ municion maxima: {municiónMaxima}");
+        if (balasFaltantes <= municiónExtra)
+        {
+            municiónExtra = municiónExtra - balasFaltantes;
+            municionActual = municiónMaxima;
+        }
+        else
+        {
+            municiónExtra = 0;
+            municionActual = municionActual + (balasFaltantes - municiónExtra);
+        }
+        Debug.Log($"munición actual: {municionActual} n/ munición restante: {municiónExtra}");
+
     }
 }

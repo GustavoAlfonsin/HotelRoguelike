@@ -38,6 +38,11 @@ public class WeaponManager : MonoBehaviour
         {
             weapons[currentWeaponIndex].Shoot();
         }
+
+        if (_playerInputs.actions["Recargar"].WasPressedThisFrame() && weapons.Count > 0)
+        {
+            weapons[currentWeaponIndex].recargar();
+        }
     }
     public void addWeapon()
     {
