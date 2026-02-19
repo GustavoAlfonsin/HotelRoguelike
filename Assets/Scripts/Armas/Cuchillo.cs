@@ -21,6 +21,13 @@ public class Cuchillo : Weapon
         _animator.SetTrigger("Attack");
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemigo"))
+        {
+            collision.gameObject.GetComponent<Enemigo>().recibirDaño(damage);
+        }
+    }
     public override void recargar()
     {
     }

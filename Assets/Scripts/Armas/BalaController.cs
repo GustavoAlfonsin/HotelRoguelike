@@ -23,7 +23,7 @@ public class BalaController : MonoBehaviour
         Debug.Log("toco algo");
         if (collision.gameObject.CompareTag("Enemigo"))
         {
-            //Hacer daño al enemigo
+            collision.gameObject.GetComponent<Enemigo>().recibirDaño(damage);
         }
 
         Destroy(gameObject);
