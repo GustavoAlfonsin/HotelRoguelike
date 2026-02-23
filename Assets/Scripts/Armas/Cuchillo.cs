@@ -7,10 +7,17 @@ public class Cuchillo : Weapon
     public int damage = 5;
     public float fireRate = 1.2f;
     private Animator _animator;
+    private BoxCollider _filo;
 
     private void Awake()
     {
         _animator = GetComponentInParent<Animator>();
+        _filo = GetComponent<BoxCollider>();
+    }
+
+    private void Start()
+    {
+        _filo.isTrigger = true;
     }
 
     private float nextFireTime;
@@ -19,6 +26,8 @@ public class Cuchillo : Weapon
         if (Time.time < nextFireTime) return;
         nextFireTime = Time.time + fireRate;
         _animator.SetTrigger("Attack");
+        _filo.isTrigger = false;
+        StartCoroutine(finAtaque());
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -30,5 +39,11 @@ public class Cuchillo : Weapon
     }
     public override void recargar()
     {
+    }
+
+    IEnumerator finAtaque()
+    {
+        yield return new WaitForSeconds(1f);
+        _filo.isTrigger = true;
     }
 }
