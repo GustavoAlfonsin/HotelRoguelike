@@ -9,6 +9,8 @@ public class Cuchillo : Weapon
     private Animator _animator;
     private BoxCollider _filo;
 
+    private float nextFireTime;
+
     private void Awake()
     {
         _animator = GetComponentInParent<Animator>();
@@ -19,19 +21,18 @@ public class Cuchillo : Weapon
     {
         _filo.isTrigger = true;
     }
-
-    private float nextFireTime;
     public override void Shoot()
     {
         if (Time.time < nextFireTime) return;
         nextFireTime = Time.time + fireRate;
-        _animator.SetTrigger("Attack");
         _filo.isTrigger = false;
+        _animator.SetTrigger("Attack");
         StartCoroutine(finAtaque());
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Toco algo");
         if (collision.gameObject.CompareTag("Enemigo"))
         {
             collision.gameObject.GetComponent<Enemigo>().recibirDaño(damage);
