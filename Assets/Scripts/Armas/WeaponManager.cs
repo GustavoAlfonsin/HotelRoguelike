@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,12 +11,6 @@ public class WeaponManager : MonoBehaviour
 
     private PlayerInput _playerInputs;
 
-    private Animator _animator;
-
-    private void Awake()
-    {
-        _animator = GetComponentInParent<Animator>();
-    }
     void Start()
     {
         _playerInputs = GetComponent<PlayerInput>();
@@ -39,9 +34,9 @@ public class WeaponManager : MonoBehaviour
             weapons[currentWeaponIndex].Shoot();
         }
 
-        if (_playerInputs.actions["Recargar"].WasPressedThisFrame() && weapons.Count > 0)
+        if (_playerInputs.actions["Recargar"].WasPressedThisFrame() && weapons[currentWeaponIndex] is FireWeapon)
         {
-            weapons[currentWeaponIndex].recargar();
+            ((FireWeapon)weapons[currentWeaponIndex]).recargar();
         }
     }
     public void addWeapon()
@@ -58,5 +53,17 @@ public class WeaponManager : MonoBehaviour
         weapons[currentWeaponIndex].Unequip();
         currentWeaponIndex = index;
         weapons[currentWeaponIndex].Equip();
+    }
+
+    public void recogerMunicion(int cant, tipo_municion gun)
+    {
+        foreach (Weapon arma in weapons)
+        {
+            if (arma is FireWeapon && arma.name.ToLower() == gun.ToString().ToLower())
+            {
+                ((FireWeapon)arma).agregarMunicion(cant);
+                break;
+            }
+        }
     }
 }

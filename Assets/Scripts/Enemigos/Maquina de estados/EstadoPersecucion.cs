@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class EstadoPersecucion : MonoBehaviour {
 
@@ -9,10 +10,16 @@ public class EstadoPersecucion : MonoBehaviour {
     private ControladorNavMesh controladorNavMesh;
     private ControladorVision controladorVision;
 
+    private Animator controlDeAnimaciones;
+    public float tiempoProximoAtaque;
+    public float tiempoEntreAtaques;
+
 	void Awake () {
         maquinaDeEstados = GetComponent<MaquinaDeEstados>();
         controladorNavMesh = GetComponent<ControladorNavMesh>();
         controladorVision = GetComponent<ControladorVision>();
+        controlDeAnimaciones = GetComponent<Animator>();
+        tiempoProximoAtaque = Time.time + tiempoEntreAtaques;
 	}
 
     void OnEnable()
@@ -27,7 +34,11 @@ public class EstadoPersecucion : MonoBehaviour {
             maquinaDeEstados.ActivarEstado(maquinaDeEstados.EstadoAlerta);
             return;
         }
-
+        if (controladorNavMesh.AlLadoDelPlayer() && Time.time > tiempoProximoAtaque)
+        {
+            tiempoProximoAtaque = Time.time + tiempoEntreAtaques;
+            controlDeAnimaciones.SetTrigger("Attack");
+        }
         controladorNavMesh.ActualizarPuntoDestinoNavMeshAgent();    
 	}
 }

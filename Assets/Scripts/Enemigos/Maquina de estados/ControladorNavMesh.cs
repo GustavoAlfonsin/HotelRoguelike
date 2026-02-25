@@ -32,4 +32,15 @@ public class ControladorNavMesh : MonoBehaviour {
     {
         return navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance && !navMeshAgent.pathPending;
     }
+
+    public bool AlLadoDelPlayer()
+    {
+        return navMeshAgent.remainingDistance <= 2f;
+    }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawRay(transform.position, transform.forward *2f);
+    //}
 }

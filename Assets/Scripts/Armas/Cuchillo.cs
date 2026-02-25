@@ -38,10 +38,6 @@ public class Cuchillo : Weapon
             collision.gameObject.GetComponent<Enemigo>().recibirDaño(damage);
         }
     }
-    public override void recargar()
-    {
-    }
-
     IEnumerator finAtaque()
     {
         yield return new WaitForSeconds(1f);

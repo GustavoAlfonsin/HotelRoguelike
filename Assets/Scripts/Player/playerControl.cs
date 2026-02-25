@@ -21,6 +21,8 @@ public class playerControl : MonoBehaviour
     private float runningSpeed = 5f;
 
     private float rSpeed = 10f;
+
+    public GameObject objetoCerca;
     void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -29,6 +31,20 @@ public class playerControl : MonoBehaviour
     }
 
     void Update()
+    {
+        MovimientoJugador();
+        interactuar();
+    }
+
+    private void interactuar()
+    {
+        if (objetoCerca != null && _playerInput.actions["Interactuar"].WasPressedThisFrame())
+        {
+            objetoCerca.GetComponent<Objeto>().usar();
+        }
+    }
+
+    private void MovimientoJugador()
     {
         Vector2 movementInput = _playerInput.actions["Movement"].ReadValue<Vector2>();
         Vector3 posicion = new Vector3(movementInput.x, 0, movementInput.y);
@@ -64,6 +80,5 @@ public class playerControl : MonoBehaviour
         {
             _controller.Move(finalMove * runningSpeed * Time.deltaTime);
         }
-        
     }
 }
