@@ -23,6 +23,9 @@ public class playerControl : MonoBehaviour
     private float rSpeed = 10f;
 
     public GameObject objetoCerca;
+
+    public int vida = 50;
+    private int vidaMaxima = 50;
     void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -79,6 +82,31 @@ public class playerControl : MonoBehaviour
         else
         {
             _controller.Move(finalMove * runningSpeed * Time.deltaTime);
+        }
+    }
+
+    public void recibirDaño(int daño)
+    {
+        vida -= daño;
+        if (vida <= 0)
+        {
+            vida = 0;
+            morir();
+        }
+    }
+
+    private void morir()
+    {
+        Time.timeScale = 0;
+        //poner pantalla de perder
+    }
+
+    public void curar(int salud)
+    {
+        vida += salud;
+        if (vida > vidaMaxima)
+        {
+            vida = vidaMaxima;
         }
     }
 }

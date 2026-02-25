@@ -15,6 +15,7 @@ public class Cuchillo : Weapon
     {
         _animator = GetComponentInParent<Animator>();
         _filo = GetComponent<BoxCollider>();
+        activo = true;
     }
 
     private void Start()

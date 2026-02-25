@@ -39,9 +39,16 @@ public class WeaponManager : MonoBehaviour
             ((FireWeapon)weapons[currentWeaponIndex]).recargar();
         }
     }
-    public void addWeapon()
+    public void addWeapon(string clase)
     {
-        //Agrega el arma nueva encontrada
+        foreach (Weapon weapon in weapons)
+        {
+            if (weapon.name.ToLower() == clase.ToLower())
+            {
+                weapon.activarArma();
+                break;
+            }
+        }
     }
 
     private void selectWeapon(int index)
