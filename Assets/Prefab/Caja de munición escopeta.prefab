@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2720170187525903712}
   - component: {fileID: 6346954201041733673}
   - component: {fileID: 343200093539938951}
-  - component: {fileID: 5905955427971884156}
-  m_Layer: 0
+  - component: {fileID: -8242730571366842761}
+  m_Layer: 3
   m_Name: "Caja de munici\xF3n escopeta"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,13 +100,13 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5905955427971884156
+--- !u!114 &-8242730571366842761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,10 +115,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8590952159774344485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf9b13ffc66c8847884d1c66292a759, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d78edabc4733834a82d9360be7ea06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimensiones: {x: 0.75, y: 2, z: 0.3}
-  sePuedeUsar: 0
-  cantidad: 2
-  tipo: 1
+  type: 1
+  amount: 3

@@ -22,8 +22,6 @@ public class playerControl : MonoBehaviour
 
     private float rSpeed = 10f;
 
-    public GameObject objetoCerca;
-
     public int vida = 50;
     private int vidaMaxima = 50;
     void Start()
@@ -36,15 +34,6 @@ public class playerControl : MonoBehaviour
     void Update()
     {
         MovimientoJugador();
-        interactuar();
-    }
-
-    private void interactuar()
-    {
-        if (objetoCerca != null && _playerInput.actions["Interactuar"].WasPressedThisFrame())
-        {
-            objetoCerca.GetComponent<Objeto>().usar();
-        }
     }
 
     private void MovimientoJugador()

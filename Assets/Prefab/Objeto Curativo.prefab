@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8325895894139340202}
   - component: {fileID: 1874947309761251154}
   - component: {fileID: 6769267702057679197}
-  - component: {fileID: 1238221248482611338}
-  m_Layer: 0
+  - component: {fileID: -4045401424859780021}
+  m_Layer: 3
   m_Name: Objeto Curativo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1238221248482611338
+--- !u!114 &-4045401424859780021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,8 +115,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7564192271098772738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3662b6019678b9646924ee3a663b122d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e5af3b76059f604e9ec75e8c0773044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimensiones: {x: 0.75, y: 0.75, z: 0.75}
-  sePuedeUsar: 0
