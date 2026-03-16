@@ -24,6 +24,7 @@ public class playerControl : MonoBehaviour
 
     public int vida = 50;
     private int vidaMaxima = 50;
+    public Light flashLight;
     void Start()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -34,6 +35,11 @@ public class playerControl : MonoBehaviour
     void Update()
     {
         MovimientoJugador();
+
+        if (_playerInput.actions["Linterna"].WasPressedThisFrame())
+        {
+            flashLight.enabled = !flashLight.enabled;
+        }
     }
 
     private void MovimientoJugador()
